@@ -56,7 +56,7 @@ export default function Home() {
 										<CardLoading />
 									</>
 								) : (
-									carsState?.map((item: CarProp) => (
+									carsState?.map((item) => (
 										<CardCars item={item} key={item?.id} />
 									))
 								)}

@@ -6,9 +6,10 @@ import { BsFillFuelPumpFill } from "react-icons/bs";
 import { Button, ModalDetail } from "..";
 import { Transmisi } from "@/constants";
 import { CarProp } from "@/types";
-const CardCars: FC<CarProp> = ({ ...item }) => {
-	const [isOpen, setIsOpen] = useState(false);
 
+const CardCars: FC<CarProp | any> = ({ item }) => {
+	const [isOpen, setIsOpen] = useState(false);
+	console.log(item);
 	return (
 		<>
 			<div className=" w-full h-full p-4 flex flex-col bg-slate-200/50 hover:bg-white hover:drop-shadow-lg rounded-md overflow-hidden">

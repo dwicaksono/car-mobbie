@@ -1,40 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cars Mobbie Website
+
+Cars Mobbie is a dynamic website dedicated to car enthusiasts, providing detailed information about various cars. Users can filter cars based on their brand, fuel type, and manufacturing year, making it easy to find the perfect match for their preferences.
+
+## Features
+
+- **Filtering Options:** Users can conveniently filter cars by brand, fuel type, and manufacturing year.
+- **API Integration:** The website utilizes a free API from [API Ninjas](https://api-ninjas.com/api/cars) to fetch car data. The endpoint for API requests is `https://api.api-ninjas.com/v1`.
+- **Static Images:** All car images are static due to the limitations of the API response, ensuring a consistent user experience.
+- **Detailed Information:** Users can view specific details about car features such as fuel type, Front-Wheel Drive (FWD), etc., via popup modals.
+- **Technology Stack:** The website is built using Next.js for efficient rendering, Redux Toolkit for state management, Axios for API requests, and Tailwind CSS for responsive and stylish designs.
+
+Explore the world of cars with Cars Mobbie and find the vehicle that matches your requirements seamlessly!
+
+## Setup the environment
+
+change file
+from
+
+```
+.env.example
+```
+
+to
+
+```
+.env
+```
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run with
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+yarn dev
+```
