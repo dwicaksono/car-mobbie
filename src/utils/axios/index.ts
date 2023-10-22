@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export const fetch = axios.create({
-	baseURL: "https://api.api-ninjas.com/v1",
+	baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 	headers: {
-		"X-API-Key": "e6wgsS/nMnujNDYzgBGqZA==9W77PntJCQNxsfC3",
+		"X-API-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY,
 	},
 });
