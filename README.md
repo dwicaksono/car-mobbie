@@ -60,6 +60,9 @@ if you want to see results without running the code you can go to this [LINK](ht
 
 ## Storybook
 
+![Screenshot 2023-10-23 at 14 08 31](https://github.com/dwicaksono/car-mobbie/assets/20668022/95ded5b3-58d9-44ac-a3c1-59d7cb1b132a)
+
+
 run storybook
 
 ```bash
