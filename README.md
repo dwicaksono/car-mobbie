@@ -1,3 +1,7 @@
+
+![Screenshot 2023-10-23 at 13 35 01](https://github.com/dwicaksono/car-mobbie/assets/20668022/7e624cf5-c4e6-4e98-b315-e1083577368d)
+
+
 # Cars Mobbie Website
 
 Cars Mobbie is a dynamic website dedicated to car enthusiasts, providing detailed information about various cars. Users can filter cars based on their brand, fuel type, and manufacturing year, making it easy to find the perfect match for their preferences.
