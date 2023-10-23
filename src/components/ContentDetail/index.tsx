@@ -1,13 +1,13 @@
-import { ContentDetail } from "@/types";
-import React, { FC } from "react";
+import { ContentDetailProp } from '@/types';
+import React, { FC } from 'react';
 
-const ContentDetail: FC<ContentDetail> = ({ title, content }) => {
-	return (
-		<div>
-			<p className="text-lg font-normal leading-tight capitalize">{title}</p>
-			<p className="text-lg font-bold leading-none">{content}</p>
-		</div>
-	);
+const ContentDetail: FC<ContentDetailProp> = ({ title, content }) => {
+  return (
+    <>
+      <p className="text-lg font-normal leading-tight capitalize">{title}</p>
+      <p className="text-lg font-bold leading-none">{content}</p>
+    </>
+  );
 };
 
 export default ContentDetail;
