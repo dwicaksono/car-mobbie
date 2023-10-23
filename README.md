@@ -8,7 +8,7 @@ Cars Mobbie is a dynamic website dedicated to car enthusiasts, providing detaile
 - **API Integration:** The website utilizes a free API from [API Ninjas](https://api-ninjas.com/api/cars) to fetch car data. The endpoint for API requests is `https://api.api-ninjas.com/v1`.
 - **Static Images:** All car images are static due to the limitations of the API response, ensuring a consistent user experience.
 - **Detailed Information:** Users can view specific details about car features such as fuel type, Front-Wheel Drive (FWD), etc., via popup modals.
-- **Technology Stack:** The website is built using Next.js for efficient rendering, Redux Toolkit for state management, Axios for API requests, and Tailwind CSS for responsive and stylish designs.
+- **Technology Stack:** The website is built using Next.js for efficient rendering, Redux Toolkit for state management, Axios for API requests, storybook, and Tailwind CSS for responsive and stylish designs.
 
 Explore the world of cars with Cars Mobbie and find the vehicle that matches your requirements seamlessly!
 
@@ -44,3 +44,17 @@ yarn dev
 #### Domain
 
 if you want to see results without running the code you can go to this [LINK](https://cars-mobbie.netlify.app/)
+
+## Storybook
+
+run storybook
+
+```bash
+yarn storybook
+```
+
+after running open URL on browser
+
+```
+ http://localhost:6006/
+```
