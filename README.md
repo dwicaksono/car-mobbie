@@ -3,6 +3,8 @@
 
 ![Screenshot 2023-10-23 at 13 41 15](https://github.com/dwicaksono/car-mobbie/assets/20668022/e7120681-dd65-4406-89bc-e2edcba53333)
 
+Name: Dimas Novan Arif Wicaksono
+
 
 # Cars Mobbie Website
 
