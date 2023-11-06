@@ -9,14 +9,23 @@ import {
   SelectFilter,
 } from '@/components';
 import { engine, yearsOfCar } from '@/constants';
-import { useGetCars } from '@/hooks';
+import { useGetCarsQuery } from '@/state/carsSlice';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
+import { useGetCars } from '@/hooks';
 
+const HeroSection = dynamic(() => import('@/components/Hero'));
 export default function Home() {
-  const { carsState, isLoading, showMorehandler, productsRef, isNoMore } =
-    useGetCars();
-  const isDataEmpty =
-    !Array.isArray(carsState) || carsState.length < 1 || !carsState;
+  const {
+    data,
+    isLoading,
+    isSuccess,
+    error,
+    isFetching,
+    isNoMore,
+    showMorehandler,
+  } = useGetCars();
+  console.log(isLoading);
 
   return (
     <>
@@ -25,8 +34,8 @@ export default function Home() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <main className="overflow-hidden">
-        <Hero />
+      <main>
+        <HeroSection />
         <div className="max-width pt-10" id="explore-car">
           <div className="px-10 mb-4">
             <h1 className="text-3xl font-semibold">Choose Your Car</h1>
@@ -37,35 +46,29 @@ export default function Home() {
           <div className="px-10 py-4 w-full flex flex-wrap justify-between gap-8 drop-shadow">
             <Search />
             <div className="flex gap-2">
-              <SelectFilter title="fuels" options={engine} />
-              <SelectFilter title="Years" options={yearsOfCar} />
+              <SelectFilter title="fuel_type" options={engine} />
+              <SelectFilter title="year" options={yearsOfCar} />
             </div>
           </div>
         </div>
-        <section className="max-width px-10" id="products" ref={productsRef}>
-          {isDataEmpty ? (
-            <EmptyState />
+        <section className="max-width px-10" id="products">
+          {isLoading || isFetching ? (
+            <div className="grid grid-cols-1 md:grid-cols-3  gap-4">
+              <CardLoading />
+              <CardLoading />
+              <CardLoading />
+            </div>
           ) : (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-3  gap-4">
-                {isLoading ? (
-                  <>
-                    <CardLoading />
-                    <CardLoading />
-                    <CardLoading />
-                  </>
-                ) : (
-                  carsState?.map(item => (
-                    <CardCars item={item} key={item?.id} />
-                  ))
-                )}
-              </div>
-              {!isNoMore && (
-                <div className="mt-10 flex justify-center w-full">
-                  <Button clickButton={showMorehandler} title="Show more" />
-                </div>
-              )}
-            </>
+            <div className="grid grid-cols-1 md:grid-cols-3  gap-4">
+              {data?.map((item: any) => (
+                <CardCars item={item} key={item?.id} />
+              ))}
+            </div>
+          )}
+          {!isNoMore && (
+            <div className="mt-10 flex justify-center w-full">
+              <Button clickButton={showMorehandler} title="Show more" />
+            </div>
           )}
         </section>
       </main>

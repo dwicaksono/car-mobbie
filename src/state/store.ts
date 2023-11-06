@@ -1,10 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
-import carsReducer from "@/state/carsSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import { apiSlice } from '@/api/apiSlice';
 
 export const store = configureStore({
-	reducer: {
-		cars: carsReducer,
-	},
+  reducer: {
+    [apiSlice.reducerPath]: apiSlice.reducer,
+  },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
 export type Roostate = ReturnType<typeof store.getState>;

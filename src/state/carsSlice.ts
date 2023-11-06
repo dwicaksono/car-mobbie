@@ -1,45 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { Roostate } from './store';
+import { apiSlice } from '@/api/apiSlice';
+import { createEntityAdapter, nanoid } from '@reduxjs/toolkit';
 
-const initialState: any = {
-  carsState: [],
-  isLoading: false,
-  countLimit: 6,
-};
-const carsSlice = createSlice({
-  name: 'carsMobbie',
-  initialState,
-  reducers: {
-    setCars: (state, action) => ({
-      ...state,
-      isLoading: false,
-      carsState: action.payload,
-    }),
-    setStartLoading: state => ({
-      ...state,
-      isLoading: true,
-    }),
-    setStopLoading: state => ({
-      ...state,
-      isLoading: false,
-    }),
-    setCountLimit: state => ({
-      ...state,
-      countLimit: state.countLimit + 6,
-    }),
-    setResetLimit: state => ({
-      ...state,
-      countLimit: 6,
-    }),
-  },
+const carsAdapter = createEntityAdapter({
+  sortComparer: (a: { make: string }, b: { make: string }) =>
+    b.make.localeCompare(a.make),
 });
 
-export const {
-  setCars,
-  setStartLoading,
-  setStopLoading,
-  setCountLimit,
-  setResetLimit,
-} = carsSlice.actions;
-export const selectCars = (state: Roostate) => state.cars;
-export default carsSlice.reducer;
+const initialState = carsAdapter.getInitialState();
+
+export const extendedApiSlice = apiSlice.injectEndpoints({
+  endpoints: builder => ({
+    getCars: builder.query({
+      query: ({ make, limit = 6, year = 2022, fuel_type }) => {
+        return {
+          url: `/cars`,
+          params: {
+            make,
+            limit,
+            year,
+            fuel_type,
+          },
+          method: 'GET',
+        };
+      },
+      providesTags: ['CARS'],
+      transformResponse: (responseData: any) => {
+        const newResponse = responseData.map((item: any) => ({
+          ...item,
+          id: nanoid(),
+        }));
+        return newResponse;
+      },
+    }),
+  }),
+});
+
+export const { useGetCarsQuery } = extendedApiSlice;

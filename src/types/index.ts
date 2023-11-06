@@ -16,7 +16,7 @@ export interface OptionProps {
 }
 
 export interface SelectFilterProps {
-  title: string;
+  title?: 'year' | 'fuel_type';
   options: OptionProps[];
 }
 
